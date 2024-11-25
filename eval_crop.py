@@ -84,7 +84,8 @@ def extract_features_and_labels(model, loader, device, save_dir, split_name):
     label_list = []
 
     with torch.no_grad():
-        for i, (images, coarse, fine_grained) in enumerate(loader):
+        #for i, (images, coarse, fine_grained) in enumerate(loader): #Bug
+        for i, (images, fine_grained, experiment_plate_id) in enumerate(loader):
             if i % 10 == 0:
                 logger.info(f"Processing batch {i+1}/{len(loader)}...")
 
